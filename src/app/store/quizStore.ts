@@ -147,6 +147,7 @@ export const useQuizStore = create<QuizState>()(
         isReviewMode: state.isReviewMode,
       }),
       merge: (persisted, current) => {
+        if (!persisted) return current;
         const data = persisted as Partial<QuizState>;
         return {
           ...current,
